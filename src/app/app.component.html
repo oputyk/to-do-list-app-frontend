@@ -1,0 +1,17 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+  <mat-toolbar>
+    <span>Todo List Application</span>
+  </mat-toolbar>
+  <div fxLayout="column" fxFlex fxLayoutAlign="start center">
+    <mat-card *ngFor="let task of (tasks$ | async)">
+      <mat-card-title>
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+          <div>{{task.description}}</div>
+          <button class="remove-button" (click)="removeTask(task.id)">Remove</button>
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle>{{task.taskStatus}}</mat-card-subtitle>
+      <mat-card-content>{{task.modificationTime | date: 'dd/MM/yyyy hh:mm'}}</mat-card-content>
+    </mat-card>
+  </div>
+</div>
